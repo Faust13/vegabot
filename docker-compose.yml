@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  vegabot:
+    container_name: vegabot
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:5073:5073"
+#    env_file:
+#      - bot.env
+#    environment:
+#      - ATB_API_KEY
+#      - ATB_BASE_KEY
+#      - ATB_TABLE
+#      - TG_API_KEY
+#      - TG_ADMN_CHAT_ID
