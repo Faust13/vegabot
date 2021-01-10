@@ -28,7 +28,7 @@
 | TG_ADMN_CHAT_ID | '-123'                                             | ID чата администрации клана, куда будут поступать заявки на вступление | str                    |
 | CHAT_CLAN_LINK  | 'https://t.me/GuardianFM'                          | Ссылка на внутренний чат клана                                         | str                    |
 | LFG_CLAN_LINK   | 'https://t.me/GuardianFM'                          | Ссылка на лфг-чат клана                                                | str                    |
-| BNET_CLAN_LINK  | 'https://www.bungie.net/ru/ClanV2?groupid=2135560' | Ссылка на лфг-чат клана                                                | str                    |
+| BNET_CLAN_LINK  | 'https://www.bungie.net/ru/ClanV2?groupid=2135560' | Ссылка на страницу клана в bungie.net                                  | str                    |
 
 Чтобы узнать ID своих чатов, можно воспользоваться [вот этим ботом](https://t.me/getmyid_bot).
 
