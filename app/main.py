@@ -92,28 +92,28 @@ def register(message):
     bot.send_chat_action(chat_id, 'typing')
     UserRepository().add_user(username, chat_id)
     bot.send_message(message.chat.id, CLAN_CHARTER_MESSAGE)
-    bot.send_message(message.chat.id, 'Для продолжения напиши мне свой gamertag Xbox Live (никнейм):')
+    bot.send_message(message.chat.id, REQUEST_NICKNAME)
     bot.register_next_step_handler(message, set_xbox_live_id)
 
 
 def reset(message):
     bot.send_chat_action(message.chat.id, 'typing')
     bot.send_message(message.chat.id, 'Итак, Страж, ты решил что-то изменить...')
-    bot.send_message(message.chat.id, 'Для продолжения напиши мне свой gamertag Xbox Live (никнейм):')
+    bot.send_message(message.chat.id, REQUEST_NICKNAME)
     bot.register_next_step_handler(message, set_xbox_live_id)
 
 
 def set_xbox_live_id(message):
     bot.send_chat_action(message.from_user.id, 'typing')
     UserRepository().change_user(message.chat.username, 'xboxlive', message.text)
-    bot.send_message(message.from_user.id, 'Как тебя зовут?')
+    bot.send_message(message.from_user.id, REQUEST_NAME)
     bot.register_next_step_handler(message, set_name)
 
 
 def set_name(message):
     bot.send_chat_action(message.from_user.id, 'typing')
     UserRepository().change_user(message.chat.username, 'name', message.text)
-    bot.send_message(message.from_user.id, 'Сколько тебе лет?')
+    bot.send_message(message.from_user.id, REQUEST_AGE)
     bot.register_next_step_handler(message, set_age)
 
 
@@ -125,7 +125,7 @@ def set_age(message):
         age = 0
 
     UserRepository().change_user(message.chat.username, 'age', age)
-    bot.send_message(message.from_user.id, TELL_ABOUT_MESSAGE)
+    bot.send_message(message.from_user.id, REQUEST_ABOUT_MESSAGE)
     bot.register_next_step_handler(message, set_about)
 
 
