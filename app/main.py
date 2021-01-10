@@ -71,7 +71,11 @@ def start(message):
 
 def print_help(chat_id: int):
     bot.send_chat_action(chat_id, 'typing')
-    bot.send_message(chat_id, HELP_MESSAGE)
+    commands = {
+                'reset': 'Запустить процесс подачи заявки'
+    }
+    bot.send_message(chat_id, HELP_MESSAGE, reply_markup=get_command_buttons(commands))
+
 
 
 def get_command_buttons(commands: dict):
