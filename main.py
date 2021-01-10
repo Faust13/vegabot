@@ -166,8 +166,9 @@ def render_total(telegram_tag: str):
     keyboard_reset = telebot.types.InlineKeyboardMarkup(row_width=1)
     key_reset = telebot.types.InlineKeyboardButton(text='Перезапустить процесс подачи заявки', callback_data='reset')
     keyboard_reset.add(key_reset)
-    bot.send_message(int(fields['chat_id']), BUNGIE_NET_MESSAGE)
     bot.send_message(int(fields['chat_id']), text=RESET_MESSAGE, reply_markup=keyboard_reset)
+    bot.send_message(int(fields['chat_id']), BUNGIE_NET_MESSAGE)
+
 
 
 if __name__ == '__main__':
