@@ -8,8 +8,6 @@ services:
     restart: unless-stopped
     ports:
       - "0.0.0.0:5073:5073"
-    env_file:
-      - bot.env
     environment:
       - CLAN_NAME
       - PLATFORM
