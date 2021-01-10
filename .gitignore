@@ -1,7 +1,5 @@
 *.env
-old.py
 __pycache__
 __pycache__/*
-settings.py
 venv/*
 .idea/*

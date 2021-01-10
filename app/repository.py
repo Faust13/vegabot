@@ -1,8 +1,5 @@
 import airtable
-
-atb_api_key = ''
-atb_base_key = ''
-atb_table = ''
+from settings import atb_api_key, atb_base_key, atb_table
 
 
 class UserRepository:

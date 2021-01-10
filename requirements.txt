@@ -1,3 +1,2 @@
 pyTelegramBotAPI
 airtable-python-wrapper
-uWSGI==2.0.18

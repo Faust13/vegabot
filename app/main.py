@@ -1,10 +1,7 @@
 import telebot
 from messages import *
-# from settings import *
+from settings import tg_api_key, admin_chat
 from repository import UserRepository
-
-tg_api_key = ''
-admin_chat = ''
 
 
 bot = telebot.TeleBot(tg_api_key, parse_mode="HTML")
