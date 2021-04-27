@@ -1,4 +1,6 @@
 import telebot
+
+from tracker import render_report
 from messages import *
 from settings import tg_api_key, admin_chat
 from repository import UserRepository
@@ -141,11 +143,13 @@ def set_about(message):
 
 def render_total(telegram_tag: str):
     fields = UserRepository().get_user(telegram_tag)['fields']
+    username = fields.get('xboxlive', '')
     msg = f"Telegram: @{fields.get('tg', '')}\n" \
-          f"XBL: {fields.get('xboxlive', '')}\n" \
+          f"XBL: {username}\n" \
           f"Имя: {fields.get('name', '')}\n" \
           f"Возраст: {fields.get('age', '')}\n" \
-          f"О себе: {fields.get('about', '')}"
+          f"О себе: {fields.get('about', '')}\n\n" \
+          f"Анализ бота: {render_report(username, 1)}\n"
 
     keyboard_approve = telebot.types.InlineKeyboardMarkup(row_width=1)
     key_approve = telebot.types.InlineKeyboardButton(text='Да', callback_data='approve')
